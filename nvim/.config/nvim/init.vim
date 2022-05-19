@@ -4,7 +4,11 @@ source ~/.vimrc
 
 colorscheme gruvbox
 
+" rust plugins taken from https://sharksforarms.dev/posts/neovim-rust/
+
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 Plug 'scrooloose/nerdtree'
 
@@ -52,6 +56,8 @@ source ~/.config/nvim/plugins/polyglot.vim
 call plug#end()
 
 nnoremap <silent> <C-k><C-B> :NERDTreeToggle<CR>
+nnoremap <silent> <leader>f :FZF<cr>
+nnoremap <silent> <leader>F :FZF ~<cr>
 
 " Set completeopt to have a better completion experience
 " :help completeopt
@@ -139,6 +145,18 @@ cmp.setup({
 })
 EOF
 
+" Code navigation shortcuts
+nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
+
 " taken from https://medium.com/geekculture/neovim-configuration-for-beginners-b2116dbbde84
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching 
@@ -164,3 +182,5 @@ set ttyfast                 " Speed up scrolling in Vim
 " set spell                 " enable spell check (may need to download language package)
 " set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
+"
+let g:diagnostic_enable_underline = 0

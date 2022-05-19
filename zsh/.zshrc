@@ -97,6 +97,11 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="nvim ~/.dotfiles/zsh/.zshrc"
+alias gs="git status"
+alias gl="git log"
+alias gco="git checkout"
+alias gcaa="git commit --all --no-amend"
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
