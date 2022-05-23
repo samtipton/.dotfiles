@@ -5,12 +5,19 @@ source ~/.vimrc
 colorscheme gruvbox
 
 " rust plugins taken from https://sharksforarms.dev/posts/neovim-rust/
+" probably shoudl try coc.vim
 
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
+source ~/.config/nvim/plugins/coc.vim
+
+" nerd tree
 Plug 'scrooloose/nerdtree'
+
+" auto save
+Plug 'Pocco81/AutoSave.nvim'
 
 " prettier
 Plug 'sbdchd/neoformat'
@@ -55,9 +62,14 @@ source ~/.config/nvim/plugins/polyglot.vim
 
 call plug#end()
 
+tnoremap <Esc> <C-\><C-n>
+noremap <silent> <Esc> :noh<CR> \| :w!<CR>
 nnoremap <silent> <C-k><C-B> :NERDTreeToggle<CR>
 nnoremap <silent> <leader>f :FZF<cr>
 nnoremap <silent> <leader>F :FZF ~<cr>
+nnoremap <silent> <leader>w :w!<cr> 
+nnoremap H gT
+nnoremap L gt
 
 " Set completeopt to have a better completion experience
 " :help completeopt
