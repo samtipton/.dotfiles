@@ -1,0 +1,3 @@
+[submodule "indeed"]
+	path = indeed
+	url = git@github.com:samtipton/indeed.git

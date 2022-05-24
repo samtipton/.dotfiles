@@ -98,7 +98,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 alias vim="nvim"
-alias cd="exa"
+alias ls="exa"
 alias ll="exa --tree -ll"
 alias zshconfig="nvim ~/.dotfiles/zsh/.zshrc"
 alias gs="git status"
@@ -112,3 +112,4 @@ alias gcaa="git commit --all --no-amend"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
