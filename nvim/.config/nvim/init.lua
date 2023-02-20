@@ -65,6 +65,8 @@ vim.opt.rtp:prepend(lazypath)
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
+  {'preservim/nerdtree'},
+  {'petertriho/nvim-scrollbar'},
 
   -- Git related plugins
   'tpope/vim-fugitive',
@@ -72,6 +74,13 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
+
+  {'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+      require('scrollbar.handlers.gitsigns').setup()
+    end
+  },
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -251,6 +260,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+require('scrollbar').setup()
+
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
@@ -349,6 +360,9 @@ require('nvim-treesitter.configs').setup {
     },
   },
 }
+
+-- NerdTree keymaps
+vim.keymap.set('n', '<C-k><C-b>', ':NERDTreeToggle<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
