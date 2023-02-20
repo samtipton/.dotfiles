@@ -1,3 +1,8 @@
 [submodule "indeed"]
 	path = indeed
 	url = git@github.com:samtipton/indeed.git
+
+[submodule "kitty/.config/kitty/kitty-themes"]
+	path = kitty/.config/kitty/kitty-themes
+	url = git@github.com:dexpota/kitty-themes.git
+
