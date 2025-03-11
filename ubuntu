@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+[[ -z $STOW_FOLDERS ]] && export STOW_FOLDERS="nvim,zsh"
+
+
+[[ -z $DOTFILES ]] && export DOTFILES="$HOME/.dotfiles"
+
+"$DOTFILES/install"
+

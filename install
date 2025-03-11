@@ -1,8 +1,15 @@
-pushd $DOTFILES
-for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
-do
-    stow -D $folder
-    stow $folder
-done
-popd
+#!/usr/bin/env zsh
 
+pushd "$DOTFILES" || exit 1  # Exit if the directory doesn't exist
+
+# Convert comma-separated list into an array
+IFS=',' read -rA folders <<< "$STOW_FOLDERS"
+
+for folder in "${folders[@]}"; do
+    if [[ -n "$folder" ]]; then  # Ensure folder is not empty
+        stow -D "$folder"
+        stow "$folder"
+    fi
+done
+
+popd || exit 1
