@@ -98,8 +98,8 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 alias vim="nvim"
-alias ls="exa"
-alias ll="exa --tree -ll"
+alias ls="eza"
+alias ll="eza --tree -ll"
 alias zshconfig="nvim ~/.dotfiles/zsh/.zshrc"
 alias gs="git status"
 alias gl="git log"
@@ -114,3 +114,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 eval "$(starship init zsh)"
+
