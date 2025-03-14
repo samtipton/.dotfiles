@@ -3,6 +3,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+
 source ~/.zsh_profile
 
 # Set name of the theme to load --- if set to "random", it will
@@ -106,12 +107,26 @@ alias gl="git log"
 alias gco="git checkout"
 alias gcaa="git commit --all --no-amend"
 alias python=python3
+alias cat=bat
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 eval "$(starship init zsh)"
 
+# c($_$)p
+alias btc="open /System/Library/Image\ Capture/Devices/VirtualScanner.app/Contents/Resources/simpledoc.pdf"
+
+export SRC_ENDPOINT=https://indeed.sourcegraph.com
+export SRC_ACCESS_TOKEN=sgp_256ac9f7d9324a74_60a3730e596145a4922f51fdd14433654f1852b5
+# BEGIN env Setup -- Managed by Ansible DO NOT EDIT.
+
+# Setup INDEED_ENV_DIR earlier.
+if [ -z "${INDEED_ENV_DIR}" ]; then
+    export INDEED_ENV_DIR="/Users/samtipton/env"
+fi
+
+# Single-brace syntax because this is required in bash and sh alike
+if [ -e "${INDEED_ENV_DIR}/etc/indeedrc" ]; then
+    . "${INDEED_ENV_DIR}/etc/indeedrc"
+fi
+# END env Setup -- Managed by Ansible DO NOT EDIT.
